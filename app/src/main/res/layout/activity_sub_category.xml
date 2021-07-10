@@ -1,0 +1,369 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="com.bc.userapp.models.SalonModel"/>
+        <import type="com.bc.userapp.models.BarberModel"/>
+
+        <import type="java.util.List"/>
+        <variable
+            name="salon"
+            type="SalonModel" />
+
+
+        <variable
+            name="barberlist"
+            type="List&lt;BarberModel>" />
+
+
+        <variable
+            name="callback"
+            type="com.bc.userapp.SubCategoryActivity" />
+
+
+
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:orientation="vertical"
+        android:overScrollMode="never"
+        android:scrollbars="none"
+        android:clipToPadding="false"
+        android:splitMotionEvents="false">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="30dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/bg_color"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:id="@+id/frameBg"
+                    android:layout_width="match_parent"
+                    android:layout_height="300dp"
+                    >
+
+                    <ImageView
+                        android:scaleType="fitXY"
+                        setimage="@{salon.image}"
+                        android:background="@drawable/login_bg2"
+                        android:layout_width="match_parent"
+                        android:layout_height="300dp"/>
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="15dp"
+                        android:layout_marginTop="25dp"
+                        android:layout_marginEnd="15dp"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                onback="@{`test`}"
+                                android:id="@+id/imgBack"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:src="@drawable/ic_back_arrow"
+                                app:tint="@color/white" />
+                        </LinearLayout>
+
+                        <ImageView
+                            android:visibility="gone"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="end"
+                            android:src="@drawable/ic_bookmark" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_above="@+id/tvAddress"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginBottom="4dp"
+                        android:fontFamily="@font/sf_pro_display_bold"
+                        android:includeFontPadding="false"
+                        android:text="@{salon.name}"
+                        android:textColor="@color/white"
+                        android:textSize="24sp" />
+
+                    <TextView
+                        android:id="@+id/tvAddress"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_above="@+id/liRating"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginBottom="11dp"
+                        android:fontFamily="@font/sf_pro_display_regular"
+                        android:text="@{salon.address}"
+                        android:textColor="@color/white"
+                        android:textSize="13sp" />
+
+                    <LinearLayout
+                        android:id="@+id/liRating"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginEnd="16dp"
+                        android:orientation="horizontal">
+
+                        <RatingBar
+
+                            android:id="@+id/rating"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginStart="-59dp"
+                            android:layout_marginTop="-10dp"
+                            android:numStars="5"
+                            android:rating="@{salon.rating}"
+                            android:scaleX="0.5"
+                            android:scaleY="0.5"
+                            android:theme="@style/RatingBar1" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginStart="-50dp"
+                            android:layout_marginTop="-12dp"
+                            android:layout_weight="1"
+                            android:fontFamily="@font/sf_pro_display_regular"
+                            android:includeFontPadding="false"
+                            android:text=""
+                            android:textColor="@color/white"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/rectangle_green_tansparent"
+                            android:fontFamily="@font/sf_pro_display_medium"
+                            android:includeFontPadding="false"
+                            android:paddingLeft="12dp"
+                            android:paddingTop="3dp"
+                            android:paddingRight="12dp"
+                            android:paddingBottom="3dp"
+                            android:text="@{salon.isopen?`Open`:`Close`}"
+                            android:textColor="@color/green"
+                            android:textSize="12sp" />
+                    </LinearLayout>
+
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="23dp"
+                    android:layout_marginTop="21dp"
+                    android:layout_marginEnd="23dp"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:onClick="@{()->callback.onWebsite()}"
+
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="25.3dp"
+                            android:layout_height="26.2dp"
+                            android:layout_gravity="center"
+                            android:src="@drawable/ic_website" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="5.6dp"
+                            android:fontFamily="@font/sf_pro_display_regular"
+                            android:includeFontPadding="false"
+                            android:text="Website"
+                            android:textColor="@color/light_black"
+                            android:textSize="13sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:onClick="@{()->callback.openWhatsapp()}"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="28.8dp"
+                            android:layout_height="28.2dp"
+                            android:layout_gravity="center"
+                            android:src="@drawable/ic_endcall" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="5.6dp"
+                            android:fontFamily="@font/sf_pro_display_regular"
+                            android:includeFontPadding="false"
+                            android:text="What's App"
+                            android:textColor="@color/light_black"
+                            android:textSize="13sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:onClick="@{()->callback.openMapLocation()}"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="28.8dp"
+                            android:layout_height="30.2dp"
+                            android:layout_gravity="center"
+                            android:src="@drawable/ic_map_direction" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="5.6dp"
+                            android:fontFamily="@font/sf_pro_display_regular"
+                            android:includeFontPadding="false"
+                            android:text="Direction"
+                            android:textColor="@color/light_black"
+                            android:textSize="13sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:onClick="@{()->callback.shareApp()}"
+                        android:id="@+id/liShare"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="25.6dp"
+                            android:layout_height="26.2dp"
+                            android:layout_gravity="center"
+                            android:src="@drawable/ic_share" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="5.6dp"
+                            android:fontFamily="@font/sf_pro_display_regular"
+                            android:includeFontPadding="false"
+                            android:text="Share"
+                            android:textColor="@color/light_black"
+                            android:textSize="13sp" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginTop="28dp"
+                    android:fontFamily="@font/sf_pro_display_bold"
+                    android:includeFontPadding="false"
+                    android:text="Salon Specialists"
+                    android:textColor="@color/pure_black"
+                    android:textSize="16sp" />
+
+                <!--Photos List RecyclerView-->
+                <androidx.recyclerview.widget.RecyclerView
+                    setbarber="@{barberlist}"
+                    android:id="@+id/recyclerview"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="14dp"
+                    android:clipToPadding="false"
+                    android:overScrollMode="never"
+                    android:paddingLeft="16dp" />
+
+
+
+
+
+
+
+
+                <com.google.android.material.tabs.TabLayout
+                    android:id="@+id/tabCoupon"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="21dp"
+                    android:layout_marginTop="36dp"
+                    android:layout_marginEnd="21dp"
+                    android:background="@color/bg_color"
+                    app:tabBackground="@color/bg_color"
+                    app:tabGravity="fill"
+                    app:tabIndicator="@color/orange_fd6c57"
+                    app:tabIndicatorColor="@color/orange_fd6c57"
+                    app:tabIndicatorFullWidth="false"
+                    app:tabIndicatorGravity="bottom"
+                    app:tabIndicatorHeight="2dp"
+                    app:tabMode="scrollable"
+                    app:tabSelectedTextColor="@color/pure_black"
+                    app:tabTextAppearance="@style/MyCustomTextAppearance"
+                    app:tabTextColor="@color/light_black" />
+
+            </LinearLayout>
+
+            <!--Viewpager Used-->
+            <com.bc.userapp.adapters.HeightWrappingViewPager
+                android:id="@+id/vpCoupon"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="29.3dp"
+                android:overScrollMode="never" />
+
+
+
+            <Button
+                android:visibility="gone"
+                android:id="@+id/submit"
+                android:onClick="@{()->callback.submit()}"
+
+                android:layout_alignParentBottom="true"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+
+                android:layout_marginEnd="32dp"
+                android:background="@drawable/rectangle_gradient_orange"
+                android:fontFamily="@font/sf_pro_display_medium"
+                android:text="Book"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="16sp" />
+
+        </LinearLayout>
+
+    </ScrollView>
+</layout>

@@ -1,0 +1,783 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="java.util.List"/>
+
+        <variable
+            name="datalist"
+            type="String" />
+
+        <variable
+            name="shavinglist"
+            type="String" />
+
+
+        <variable
+            name="haircolorlist"
+            type="String" />
+
+
+        <variable
+            name="massagelist"
+            type="String" />
+
+
+        <variable
+            name="threadlist"
+            type="String" />
+        <variable
+            name="haircutlist"
+            type="List&lt;String>" />
+
+
+        <variable
+            name="totalprice"
+            type="String" />
+
+
+        <variable
+            name="callback"
+            type="com.bc.userapp.SelectServiceActivity" />
+
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:overScrollMode="never"
+            android:scrollbars="none">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="300dp"
+                    android:background="@drawable/login_bg2">
+
+                    <include layout="@layout/toolbar_title_start" />
+
+                </FrameLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/frameBg"
+                    android:layout_marginTop="-90dp"
+                    android:background="@drawable/rectangle_white_top_cure"
+                    android:orientation="vertical">
+
+
+                    <!--FrameLayout-->
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <!--male-->
+                        <LinearLayout
+                            android:id="@+id/liMale"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:visibility="visible">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="24dp"
+                                android:layout_marginTop="27dp"
+                                android:layout_marginEnd="24dp">
+
+                                <TextView
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:fontFamily="@font/sf_pro_display_bold"
+                                    android:includeFontPadding="false"
+                                    android:text="@string/choose_your_service"
+                                    android:textColor="@color/pure_black"
+                                    android:textSize="16sp" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/sf_pro_display_bold"
+                                    android:includeFontPadding="false"
+                                    android:text="@{totalprice}"
+                                    android:textColor="@color/orange"
+                                    android:textSize="16sp" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="24dp"
+                                android:layout_marginTop="18dp"
+                                android:layout_marginEnd="24dp"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:layout_weight="1"
+                                    android:fontFamily="@font/sf_pro_display_regular"
+                                    android:includeFontPadding="false"
+                                    android:text="Hair Cut"
+                                    android:textColor="@color/txt_color"
+                                    android:textSize="16sp" />
+
+                                <LinearLayout
+                                    android:layout_width="0dp"
+                                    android:layout_height="38dp"
+                                    android:layout_weight="1.5"
+                                    android:background="@drawable/rectangle_silver_spinner"
+                                    android:orientation="vertical">
+
+                                    <Spinner
+                                        android:onItemSelected="@{()->callback.selectHairCut(sphair)}"
+                                        setservice="@{datalist}"
+                                        android:id="@+id/sphair"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="center"
+                                        android:layout_marginStart="15dp"
+                                        android:layout_marginEnd="16dp"
+                                        android:background="@drawable/custom_spinner"
+                                        android:dropDownVerticalOffset="35dp"
+                                        android:paddingHorizontal="0dp"
+                                        tools:ignore="RtlSymmetry"
+                                        android:paddingEnd="8.5dp"
+                                        android:popupBackground="@color/silver" />
+                                </LinearLayout>
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="24dp"
+                                android:layout_marginTop="11dp"
+                                android:layout_marginEnd="24dp"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:layout_weight="1"
+                                    android:fontFamily="@font/sf_pro_display_regular"
+                                    android:includeFontPadding="false"
+                                    android:text="Shaving"
+                                    android:textColor="@color/txt_color"
+                                    android:textSize="16sp" />
+
+                                <LinearLayout
+                                    android:layout_width="0dp"
+                                    android:layout_height="38dp"
+                                    android:layout_weight="1.5"
+                                    android:background="@drawable/rectangle_silver_spinner"
+                                    android:orientation="vertical">
+
+                                    <Spinner
+                                        setservice="@{shavinglist}"
+                                        android:id="@+id/spSaving"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="center"
+                                        android:layout_marginStart="15dp"
+                                        android:layout_marginEnd="16dp"
+                                        android:background="@drawable/custom_spinner"
+                                        android:dropDownVerticalOffset="35dp"
+                                        android:paddingHorizontal="0dp"
+                                        android:paddingEnd="8.5dp"
+                                        tools:ignore="RtlSymmetry"
+                                        android:popupBackground="@color/silver" />
+                                </LinearLayout>
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="24dp"
+                                android:layout_marginTop="11dp"
+                                android:layout_marginEnd="24dp"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:layout_weight="1"
+                                    android:fontFamily="@font/sf_pro_display_regular"
+                                    android:includeFontPadding="false"
+                                    android:text="Hair Color"
+                                    android:textColor="@color/txt_color"
+                                    android:textSize="16sp" />
+
+                                <LinearLayout
+                                    android:layout_width="0dp"
+                                    android:layout_height="38dp"
+                                    android:layout_weight="1.5"
+                                    android:background="@drawable/rectangle_silver_spinner"
+                                    android:orientation="vertical">
+
+                                    <Spinner
+                                        setservice="@{haircolorlist}"
+                                        android:id="@+id/spStyling"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="center"
+                                        android:layout_marginStart="15dp"
+                                        android:layout_marginEnd="16dp"
+                                        android:background="@drawable/custom_spinner"
+                                        android:dropDownVerticalOffset="35dp"
+                                        android:paddingHorizontal="0dp"
+                                        android:paddingEnd="8.5dp"
+                                        tools:ignore="RtlSymmetry"
+                                        android:popupBackground="@color/silver" />
+                                </LinearLayout>
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="24dp"
+                                android:layout_marginTop="11dp"
+                                android:layout_marginEnd="24dp"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:layout_weight="1"
+                                    android:fontFamily="@font/sf_pro_display_regular"
+                                    android:includeFontPadding="false"
+                                    android:text="Massage"
+                                    android:textColor="@color/txt_color"
+                                    android:textSize="16sp" />
+
+                                <LinearLayout
+                                    android:layout_width="0dp"
+                                    android:layout_height="38dp"
+                                    android:layout_weight="1.5"
+                                    android:background="@drawable/rectangle_silver_spinner"
+                                    android:orientation="vertical">
+
+                                    <Spinner
+                                        setservice="@{massagelist}"
+                                        android:id="@+id/spFacial1"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="center"
+                                        android:layout_marginStart="15dp"
+                                        android:layout_marginEnd="16dp"
+                                        android:background="@drawable/custom_spinner"
+                                        android:dropDownVerticalOffset="35dp"
+                                        android:paddingHorizontal="0dp"
+                                        android:paddingEnd="8.5dp"
+                                        tools:ignore="RtlSymmetry"
+                                        android:popupBackground="@color/silver" />
+                                </LinearLayout>
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="24dp"
+                                android:layout_marginTop="11dp"
+                                android:layout_marginEnd="24dp"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:layout_weight="1"
+                                    android:fontFamily="@font/sf_pro_display_regular"
+                                    android:includeFontPadding="false"
+                                    android:text="Threading"
+                                    android:textColor="@color/txt_color"
+                                    android:textSize="16sp" />
+
+                                <LinearLayout
+                                    android:layout_width="0dp"
+                                    android:layout_height="38dp"
+                                    android:layout_weight="1.5"
+                                    android:background="@drawable/rectangle_silver_spinner"
+                                    android:orientation="vertical">
+
+                                    <Spinner
+                                        setservice="@{threadlist}"
+                                        android:id="@+id/spHaircolor1"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="center"
+                                        android:layout_marginStart="15dp"
+                                        android:layout_marginEnd="16dp"
+                                        android:background="@drawable/custom_spinner"
+                                        android:dropDownVerticalOffset="35dp"
+                                        android:paddingHorizontal="0dp"
+                                        android:paddingEnd="8.5dp"
+                                        tools:ignore="RtlSymmetry"
+                                        android:popupBackground="@color/silver" />
+                                </LinearLayout>
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:visibility="gone"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="24dp"
+                                android:layout_marginTop="11dp"
+                                android:layout_marginStart="24dp"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:layout_weight="1"
+                                    android:fontFamily="@font/sf_pro_display_regular"
+                                    android:includeFontPadding="false"
+                                    android:text="@string/trimming"
+                                    android:textColor="@color/txt_color"
+                                    android:textSize="16sp" />
+
+                                <LinearLayout
+                                    android:layout_width="0dp"
+                                    android:layout_height="38dp"
+                                    android:layout_weight="1.5"
+                                    android:background="@drawable/rectangle_silver_spinner"
+                                    android:orientation="vertical">
+
+                                    <Spinner
+
+                                        android:id="@+id/spTrimming"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="center"
+                                        android:layout_marginStart="15dp"
+                                        android:layout_marginEnd="16dp"
+                                        android:background="@drawable/custom_spinner"
+                                        android:dropDownVerticalOffset="35dp"
+                                        android:paddingHorizontal="0dp"
+                                        android:paddingEnd="8.5dp"
+                                        tools:ignore="RtlSymmetry"
+                                        android:popupBackground="@color/silver" />
+                                </LinearLayout>
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:visibility="gone"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="24dp"
+                                android:layout_marginTop="11dp"
+                                android:layout_marginEnd="24dp"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:layout_weight="1"
+                                    android:fontFamily="@font/sf_pro_display_regular"
+                                    android:includeFontPadding="false"
+                                    android:text="@string/hair_cut"
+                                    android:textColor="@color/txt_color"
+                                    android:textSize="16sp" />
+
+                                <LinearLayout
+                                    android:layout_width="0dp"
+                                    android:layout_height="38dp"
+                                    android:layout_weight="1.5"
+                                    android:background="@drawable/rectangle_silver_spinner"
+                                    android:orientation="vertical">
+
+                                    <Spinner
+                                        android:id="@+id/spHairCut1"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="center"
+                                        android:layout_marginStart="15dp"
+                                        android:layout_marginEnd="16dp"
+                                        android:background="@drawable/custom_spinner"
+                                        android:dropDownVerticalOffset="35dp"
+                                        android:paddingHorizontal="0dp"
+                                        android:paddingEnd="8.5dp"
+                                        tools:ignore="RtlSymmetry"
+                                        android:popupBackground="@color/silver" />
+                                </LinearLayout>
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                        <!--FeMale-->
+                        <LinearLayout
+                            android:id="@+id/liFeMale"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:visibility="gone">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="24dp"
+                                android:layout_marginTop="27dp"
+                                android:layout_marginRight="24dp">
+
+                                <TextView
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:fontFamily="@font/sf_pro_display_bold"
+                                    android:includeFontPadding="false"
+                                    android:text="@string/choose_your_service"
+                                    android:textColor="@color/pure_black"
+                                    android:textSize="16sp" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/sf_pro_display_bold"
+                                    android:includeFontPadding="false"
+                                    android:text="@string/total_15_00"
+                                    android:textColor="@color/orange"
+                                    android:textSize="16sp" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="24dp"
+                                android:layout_marginTop="18dp"
+                                android:layout_marginRight="24dp"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:layout_weight="1"
+                                    android:fontFamily="@font/sf_pro_display_regular"
+                                    android:includeFontPadding="false"
+                                    android:text="@string/hair_cut"
+                                    android:textColor="@color/txt_color"
+                                    android:textSize="16sp" />
+
+                                <LinearLayout
+                                    android:layout_width="0dp"
+                                    android:layout_height="38dp"
+                                    android:layout_weight="1.5"
+                                    android:background="@drawable/rectangle_silver_spinner"
+                                    android:orientation="vertical">
+
+                                    <Spinner
+                                        android:id="@+id/spHairCut"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="center"
+                                        android:layout_marginStart="15dp"
+                                        android:layout_marginEnd="16dp"
+                                        android:background="@drawable/custom_spinner"
+                                        android:dropDownVerticalOffset="35dp"
+                                        android:paddingHorizontal="0dp"
+                                        android:paddingRight="8.5dp"
+                                        tools:ignore="RtlSymmetry"
+                                        android:popupBackground="@color/silver" />
+                                </LinearLayout>
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="24dp"
+                                android:layout_marginTop="11dp"
+                                android:layout_marginEnd="24dp"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:layout_weight="1"
+                                    android:fontFamily="@font/sf_pro_display_regular"
+                                    android:includeFontPadding="false"
+                                    android:text="@string/spa"
+                                    android:textColor="@color/txt_color"
+                                    android:textSize="16sp" />
+
+                                <LinearLayout
+                                    android:layout_width="0dp"
+                                    android:layout_height="38dp"
+                                    android:layout_weight="1.5"
+                                    android:background="@drawable/rectangle_silver_spinner"
+                                    android:orientation="vertical">
+
+                                    <Spinner
+                                        android:id="@+id/spSpa"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="center"
+                                        android:layout_marginStart="15dp"
+                                        android:layout_marginEnd="16dp"
+                                        android:background="@drawable/custom_spinner"
+                                        android:dropDownVerticalOffset="35dp"
+                                        android:paddingHorizontal="0dp"
+                                        android:paddingRight="8.5dp"
+                                        tools:ignore="RtlSymmetry"
+                                        android:popupBackground="@color/silver" />
+                                </LinearLayout>
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="24dp"
+                                android:layout_marginTop="11dp"
+                                android:layout_marginEnd="24dp"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:layout_weight="1"
+                                    android:fontFamily="@font/sf_pro_display_regular"
+                                    android:includeFontPadding="false"
+                                    android:text="@string/make_up"
+                                    android:textColor="@color/txt_color"
+                                    android:textSize="16sp" />
+
+                                <LinearLayout
+                                    android:layout_width="0dp"
+                                    android:layout_height="38dp"
+                                    android:layout_weight="1.5"
+                                    android:background="@drawable/rectangle_silver_spinner"
+                                    android:orientation="vertical">
+
+                                    <Spinner
+                                        android:id="@+id/spMakeup"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="center"
+                                        android:layout_marginStart="15dp"
+                                        android:layout_marginEnd="16dp"
+                                        android:background="@drawable/custom_spinner"
+                                        android:dropDownVerticalOffset="35dp"
+                                        android:paddingHorizontal="0dp"
+                                        android:paddingEnd="8.5dp"
+                                        tools:ignore="RtlSymmetry"
+                                        android:popupBackground="@color/silver" />
+                                </LinearLayout>
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="24dp"
+                                android:layout_marginTop="11dp"
+                                android:layout_marginEnd="24dp"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:layout_weight="1"
+                                    android:fontFamily="@font/sf_pro_display_regular"
+                                    android:includeFontPadding="false"
+                                    android:text="@string/facial"
+                                    android:textColor="@color/txt_color"
+                                    android:textSize="16sp" />
+
+                                <LinearLayout
+                                    android:layout_width="0dp"
+                                    android:layout_height="38dp"
+                                    android:layout_weight="1.5"
+                                    android:background="@drawable/rectangle_silver_spinner"
+                                    android:orientation="vertical">
+
+                                    <Spinner
+                                        android:id="@+id/spFacial"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="center"
+                                        android:layout_marginStart="15dp"
+                                        android:layout_marginEnd="16dp"
+                                        android:background="@drawable/custom_spinner"
+                                        android:dropDownVerticalOffset="35dp"
+                                        android:paddingHorizontal="0dp"
+                                        android:paddingEnd="8.5dp"
+                                        tools:ignore="RtlSymmetry"
+                                        android:popupBackground="@color/silver" />
+                                </LinearLayout>
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="24dp"
+                                android:layout_marginTop="11dp"
+                                android:layout_marginEnd="24dp"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:layout_weight="1"
+                                    android:fontFamily="@font/sf_pro_display_regular"
+                                    android:includeFontPadding="false"
+                                    android:text="@string/txt_haircolor"
+                                    android:textColor="@color/txt_color"
+                                    android:textSize="16sp" />
+
+                                <LinearLayout
+                                    android:layout_width="0dp"
+                                    android:layout_height="38dp"
+                                    android:layout_weight="1.5"
+                                    android:background="@drawable/rectangle_silver_spinner"
+                                    android:orientation="vertical">
+
+                                    <Spinner
+                                        android:id="@+id/spHaircolor"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="center"
+                                        android:layout_marginStart="15dp"
+                                        android:layout_marginEnd="16dp"
+                                        android:background="@drawable/custom_spinner"
+                                        android:dropDownVerticalOffset="35dp"
+                                        android:paddingHorizontal="0dp"
+                                        android:paddingEnd="8.5dp"
+                                        tools:ignore="RtlSymmetry"
+                                        android:popupBackground="@color/silver" />
+                                </LinearLayout>
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="24dp"
+                                android:layout_marginTop="11dp"
+                                android:layout_marginStart="24dp"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:layout_weight="1"
+                                    android:fontFamily="@font/sf_pro_display_regular"
+                                    android:includeFontPadding="false"
+                                    android:text="@string/bridal"
+                                    android:textColor="@color/txt_color"
+                                    android:textSize="16sp" />
+
+                                <LinearLayout
+                                    android:layout_width="0dp"
+                                    android:layout_height="38dp"
+                                    android:layout_weight="1.5"
+                                    android:background="@drawable/rectangle_silver_spinner"
+                                    android:orientation="vertical">
+
+                                    <Spinner
+                                        android:id="@+id/spBridal"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="center"
+                                        android:layout_marginStart="15dp"
+                                        android:layout_marginEnd="16dp"
+                                        android:background="@drawable/custom_spinner"
+                                        android:dropDownVerticalOffset="35dp"
+                                        android:paddingHorizontal="0dp"
+                                        android:paddingEnd="8.5dp"
+                                        android:popupBackground="@color/silver"
+                                        tools:ignore="RtlSymmetry" />
+                                </LinearLayout>
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="24dp"
+                                android:layout_marginTop="11dp"
+                                android:layout_marginEnd="24dp"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:layout_weight="1"
+                                    android:fontFamily="@font/sf_pro_display_regular"
+                                    android:includeFontPadding="false"
+                                    android:text="@string/txt_nail"
+                                    android:textColor="@color/txt_color"
+                                    android:textSize="16sp" />
+
+                                <LinearLayout
+                                    android:layout_width="0dp"
+                                    android:layout_height="38dp"
+                                    android:layout_weight="1.5"
+                                    android:background="@drawable/rectangle_silver_spinner"
+                                    android:orientation="vertical">
+
+                                    <Spinner
+                                        android:id="@+id/spNail"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="center"
+                                        android:layout_marginStart="15dp"
+                                        android:layout_marginEnd="16dp"
+                                        android:background="@drawable/custom_spinner"
+                                        android:dropDownVerticalOffset="35dp"
+                                        android:paddingHorizontal="0dp"
+                                        android:paddingEnd="8.5dp"
+                                        android:popupBackground="@color/silver"
+                                        tools:ignore="RtlSymmetry" />
+                                </LinearLayout>
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                    </FrameLayout>
+
+                    <Button
+                        android:id="@+id/btnContinue"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="32dp"
+                        android:layout_marginTop="36dp"
+                        android:layout_marginEnd="32dp"
+                        android:layout_marginBottom="30dp"
+                        android:background="@drawable/rectangle_gradient_orange"
+                        android:fontFamily="@font/sf_pro_display_medium"
+                        android:includeFontPadding="false"
+                        android:text="@string/book_now"
+                        android:textAllCaps="false"
+                        android:textColor="@color/white"
+                        android:textSize="16sp" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </ScrollView>
+
+    </LinearLayout>
+</layout>

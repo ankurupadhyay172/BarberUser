@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="callback"
+            type="com.bc.userapp.fragments.SlotFragment" />
+
+        <variable
+            name="date"
+            type="String" />
+
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".fragments.SlotFragment">
+
+
+        <LinearLayout
+            android:layout_marginBottom="55dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/frameBg"
+
+
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="26dp"
+                android:fontFamily="@font/grillbold"
+                android:text="Select Your Date"
+                android:textColor="@color/pure_black"
+                android:textSize="16sp" />
+
+            <LinearLayout
+                android:onClick="@{()->callback.selectDate(tvDate)}"
+                android:id="@+id/liDatePicker"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="13dp"
+                android:layout_marginEnd="24dp"
+                android:background="@drawable/rectangle_silver"
+                android:paddingLeft="24dp"
+                android:paddingTop="11dp"
+                android:paddingRight="24dp"
+                android:paddingBottom="11dp">
+
+                <TextView
+                    android:id="@+id/tvDate"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/sf_pro_display_regular"
+                    android:text="@{date}"
+                    android:textColor="@color/txt_color"
+                    android:textSize="15sp" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_calendar" />
+            </LinearLayout>
+
+
+            <ProgressBar
+                android:visibility="gone"
+                android:id="@+id/progress_bar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="34dp"
+                android:fontFamily="@font/sf_pro_display_bold"
+                android:text="Select Slot\n"
+                android:textColor="@color/pure_black"
+                android:textSize="16sp" />
+            <!--Specialist RecyclerView-->
+
+
+            <com.google.android.material.tabs.TabLayout
+                android:layout_marginBottom="30dp"
+                app:tabTextAppearance="@style/MyCustomTextAppearance"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:tabMode="fixed"
+                app:tabGravity="fill"
+                app:tabTextColor="#a9a9b0"
+                app:tabSelectedTextColor="#3b3b3b"
+                app:tabIndicatorColor="#118df0"
+                android:id="@+id/tablayout" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.7dp"
+                android:background="#efefef" />
+
+            <androidx.viewpager.widget.ViewPager
+
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:clipToPadding="false"
+
+                android:id="@+id/viewpager" />
+
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:visibility="gone"
+                android:id="@+id/rvSelectSlot"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="13dp"
+                android:layout_marginEnd="11dp" />
+
+            <Button
+                android:visibility="gone"
+                android:enabled="false"
+                android:id="@+id/btnContinue"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginEnd="32dp"
+
+                android:fontFamily="@font/sf_pro_display_medium"
+                android:includeFontPadding="false"
+                android:layout_marginBottom="40dp"
+                android:text="Continue"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+
+
+
+    </RelativeLayout>
+</layout>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardCornerRadius="8dp"
+    android:layout_marginEnd="11dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingStart="21dp"
+        android:paddingTop="25dp"
+        android:paddingBottom="25dp"
+        android:paddingEnd="21dp"
+        android:background="@color/pure_black">
+
+        <LinearLayout
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+            <TextView
+                android:id="@+id/tvlook"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Look Awesome &amp;\nsave some"
+                android:textColor="@color/white"
+                android:textSize="21sp"
+                android:fontFamily="@font/sf_pro_display_medium"/>
+
+            <TextView
+                android:visibility="gone"
+                android:id="@+id/tvdiscount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Get Upto 50% Off"
+                android:textColor="@color/black_333333"
+                android:textSize="14sp"
+                android:paddingStart="7dp"
+                android:paddingTop="3dp"
+                android:paddingBottom="3dp"
+                android:paddingEnd="7dp"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/rect_white"
+                android:fontFamily="@font/sf_pro_display_regular"/>
+
+        </LinearLayout>
+
+        <ImageView
+            android:src="@drawable/translogo"
+            android:layout_width="120dp"
+            android:layout_height="90dp"
+            android:scaleType="fitXY"
+            />
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

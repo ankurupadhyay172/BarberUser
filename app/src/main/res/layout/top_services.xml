@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:paddingRight="55dp"
+    android:orientation="vertical"
+    android:layout_marginEnd="12dp">
+
+    <ImageView
+        android:id="@+id/image"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:src="@drawable/ic_barber"/>
+
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/haircut"
+        android:textSize="14sp"
+        android:layout_marginTop="10dp"
+        android:textColor="@color/pure_black"
+        android:fontFamily="@font/sf_pro_display_medium"/>
+
+    <TextView
+        android:visibility="gone"
+        android:id="@+id/tvplaces"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="126 Places"
+        android:textSize="11sp"
+        android:layout_marginTop="3dp"
+        android:textColor="@color/txt_silver"
+        android:fontFamily="@font/sf_pro_display_regular"/>
+</LinearLayout>

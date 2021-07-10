@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import type="java.util.List"/>
+        <import type="com.bc.userapp.models.SalonModel"/>
+        <variable
+            name="shoplist"
+            type="List&lt;SalonModel>" />
+
+        <variable
+            name="title"
+            type="String" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".ShowAllSalonActivity">
+
+
+        <include
+            title="@{title}"
+            layout="@layout/toolbar_title" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            setsalonvertical="@{shoplist}"
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </LinearLayout>
+</layout>

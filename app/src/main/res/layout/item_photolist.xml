@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <import type="com.bc.userapp.models.BarberModel"/>
+
+        <variable
+            name="barber"
+            type="BarberModel" />
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="15dp"
+        android:orientation="vertical">
+
+        <FrameLayout
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center"
+            android:background="@drawable/circle_orange_outline">
+
+            <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
+                setimage="@{barber.image}"
+                android:id="@+id/imgProfile"
+                android:layout_width="54dp"
+                android:layout_height="54dp"
+                android:layout_gravity="center"
+                android:src="@drawable/beauty_img1"
+                app:civ_border_color="#FF000000"
+                app:civ_border_width="0dp" />
+
+
+
+            <TextView
+                android:id="@+id/selected"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|center"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/rect_orange_bg"
+                android:fontFamily="@font/sf_pro_display_bold"
+                android:paddingStart="9dp"
+                android:paddingTop="2dp"
+                android:paddingEnd="9dp"
+                android:paddingBottom="2dp"
+                android:text="Selected"
+                android:textColor="@color/white"
+                android:textSize="9sp"
+
+                />
+
+
+        </FrameLayout>
+
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:includeFontPadding="false"
+            android:fontFamily="@font/sf_pro_display_regular"
+            android:text="@{barber.name}"
+            android:textColor="@color/pure_black"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/tvSubTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="3dp"
+            android:includeFontPadding="false"
+            android:fontFamily="@font/grillbold"
+            android:text="Recommended"
+            android:textColor="@color/light_black"
+            android:textSize="11sp" />
+
+    </LinearLayout>
+</layout>

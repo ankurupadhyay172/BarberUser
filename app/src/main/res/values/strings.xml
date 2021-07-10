@@ -1,0 +1,77 @@
+<resources>
+    <string name="app_name">BarberUser</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+
+    <string name="find_and_book_best_services">Find and book best services</string>
+    <string name="search_salon_spa_and_barber">Search salon, spa and barber</string>
+    <string name="top_categories">Top categories</string>
+    <string name="view_all">View all</string>
+    <string name="best_salon">Best salon</string>
+    <string name="home">Home</string>
+    <string name="nearby">Nearby</string>
+    <string name="inbox">Inbox</string>
+    <string name="appointment">Appointment</string>
+    <string name="profile">Profile</string>
+    <string name="haircut">Haircut</string>
+    <string name="open">Open</string>
+
+    <string name="_030_zulauf_green_o_konville_sd_nunited_states_of_america">030 Zulauf Green, O’Konville, SD,\nUnited States of America</string>
+    <string name="get_directions_4_2_km">Get directions ~ 4.2 km</string>
+
+    <string name="choose_your_service">Choose your service</string>
+
+    <string name="total_45_00">Total: $45.00</string>
+
+
+    <string name="hair_style">Hair style</string>
+    <string name="saving">Saving</string>
+
+    <string name="txt_Styling">Styling</string>
+    <string name="trimming">Trimming</string>
+
+    <string name="facial">Facial</string>
+
+    <string name="txt_haircolor">Hair color</string>
+
+    <string name="hair_cut">Hair cut</string>
+
+    <string name="total_15_00">Total: $15.00</string>
+
+    <string name="spa">Spa</string>
+    <string name="make_up">Make up</string>
+    <string name="bridal">Bridal</string>
+    <string name="txt_nail">Nail</string>
+    <string name="book_now">Book now</string>
+
+
+    <string name="about_us">
+
+        Barber Connect
+#अब नही करना होगा Wait
+Book With Barber Connect App
+
+barber connect amis to provied connection between customer and saloons
+In daily busy life we making their lives easy We provide the best in class barber connect app make sure no customer has to miss their daily chores because they were waiting in a queue at a salon for their turn. In return, a business will never miss-out customers because of time mismanagement.
+
+        Worry not
+
+App will not forget to remind you about your appointment in advance. And our seamless integration with Google Calendar and iCalendar making your life easier.
+With Barber Connect , you will be the first to know about any offers at your favourite Salons Plus, there are many many exclusive offers for barber Connect customers.
+
+
+        For businesses, being Barber Connect Partner is nothing but a business boost. With B, your customer-base is guaranteed to skyrocket given the online presence and exposure to potential customers.
+
+    </string>
+    <string name="add_change"><u>Add/ Change</u></string>
+    <string name="full_name">Full name</string>
+
+    <string name="enable_noti">Enable notification to get latest \n  offers and many more…</string>
+    <string name="when_you">When you arise in the morning, think of salon booking \n barber connect done within  10 sec for you.</string>
+    <string name="turn_on">Turn On</string>
+    <string name="by_clicking">By clicking button, you accept our \n terms and conditions</string>
+    <string name="not_now">Not Now</string>
+
+    <string name="rs">₹</string>
+</resources>

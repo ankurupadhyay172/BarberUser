@@ -1,0 +1,358 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    <import type="java.util.List"/>
+        <import type="com.bc.userapp.models.SalonModel"/>
+        <variable
+            name="shoplist"
+            type="List&lt;SalonModel>" />
+
+        <variable
+            name="callback"
+            type="com.bc.userapp.fragments.HomeFragment" />
+
+
+        <variable
+            name="user"
+            type="com.bc.userapp.models.User" />
+
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:overScrollMode="never"
+            android:paddingBottom="150dp"
+            android:clipToPadding="false"
+            android:scrollbars="none">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#d1f8f8f8"
+                    android:orientation="vertical"
+                    android:paddingStart="16dp"
+                    android:paddingTop="23dp"
+                    android:paddingEnd="16dp"
+                    android:paddingBottom="15.3dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:fontFamily="@font/sf_pro_display_bold"
+                            android:text="@{`Hello , `+user.name}"
+                            android:textColor="@color/black_333333"
+                            android:textSize="17sp" />
+
+                        <ImageView
+                            android:visibility="gone"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/ic_filter" />
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:fontFamily="@font/sf_pro_display_medium"
+                        android:text="Salon location"
+                        android:textColor="@color/gray_999999"
+                        android:textSize="12sp" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:drawableStart="@drawable/ic_location_orange"
+                            android:drawablePadding="6.6dp"
+                            android:fontFamily="@font/sf_pro_display_medium"
+                            android:includeFontPadding="false"
+                            android:text="Dungarpur City"
+                            android:textColor="@color/pure_black"
+                            android:textSize="15sp" />
+
+                        <TextView
+                            android:visibility="gone"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:drawableStart="@drawable/ic_direction"
+                            android:drawablePadding="6dp"
+                            android:fontFamily="@font/sf_pro_display_medium"
+                            android:includeFontPadding="false"
+                            android:text="Change"
+                            android:textAllCaps="true"
+                            android:textColor="@color/orange_fd6c57"
+                            android:textSize="11sp" />
+
+                    </LinearLayout>
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="13dp"
+                        android:background="@drawable/rect_gray"
+                        android:drawableStart="@drawable/ic_search_black_24dp"
+                        android:drawablePadding="8dp"
+                        android:fontFamily="@font/sf_pro_display_regular"
+                        android:hint="Search for salon, services…"
+                        android:paddingStart="11dp"
+                        android:paddingTop="8dp"
+                        android:paddingEnd="11dp"
+                        android:paddingBottom="8dp"
+                        android:textColor="@color/pure_black"
+                        android:textColorHint="#8e8e93"
+                        android:textSize="16sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:clipToPadding="false"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="26.8dp"
+                        android:layout_marginEnd="16dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:fontFamily="@font/sf_pro_display_bold"
+                            android:text="Top Services"
+                            android:textColor="@color/pure_black"
+                            android:textSize="20sp" />
+
+                        <TextView
+                            android:visibility="gone"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:fontFamily="@font/sf_pro_display_medium"
+                            android:text="@string/view_all"
+                            android:textColor="@color/txt_silver"
+                            android:textSize="14sp" />
+
+                    </LinearLayout>
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/top_services"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="17dp"
+                        android:clipToPadding="false"
+                        android:overScrollMode="never"
+                        android:paddingStart="16dp" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="26.8dp"
+                        android:layout_marginEnd="16dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:fontFamily="@font/sf_pro_display_bold"
+                            android:text="Popular Salon Nearby"
+                            android:textColor="@color/pure_black"
+                            android:textSize="20sp" />
+
+                        <TextView
+                            android:onClick="@{()->callback.openAllSalon()}"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/sf_pro_display_medium"
+                            android:text="@string/view_all"
+                            android:textColor="@color/txt_silver"
+                            android:textSize="14sp" />
+
+                    </LinearLayout>
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        setsalon="@{shoplist}"
+                        android:id="@+id/top_salon"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="17dp"
+                        android:clipToPadding="false"
+                        android:overScrollMode="never"
+                        android:paddingStart="16dp" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="26.8dp"
+                        android:layout_marginEnd="16dp">
+
+                        <TextView
+                            android:visibility="gone"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:fontFamily="@font/sf_pro_display_bold"
+                            android:text="Special Package and Offers"
+                            android:textColor="@color/pure_black"
+                            android:textSize="20sp" />
+
+                        <TextView
+                            android:visibility="gone"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/sf_pro_display_medium"
+                            android:text="@string/view_all"
+                            android:textColor="@color/txt_silver"
+                            android:textSize="14sp" />
+                    </LinearLayout>
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/offers"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="17dp"
+                        android:clipToPadding="false"
+                        android:paddingStart="16dp" />
+
+
+                </LinearLayout>
+
+
+                <TextView
+                    android:visibility="gone"
+                    android:layout_marginBottom="20dp"
+                    android:layout_marginTop="55dp"
+                    android:gravity="center"
+                    android:layout_gravity="center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:text="To be a partner , please free to"
+                    android:fontFamily="@font/grillbold"
+                    android:textSize="15.3sp" />
+
+
+                <TextView
+                    android:visibility="gone"
+                    android:layout_marginBottom="33dp"
+                    android:gravity="center"
+                    android:layout_gravity="center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/orange"
+                    android:text="Contact Us"
+                    android:fontFamily="@font/grillbold"
+                    android:textSize="16.3sp" />
+
+
+                <LinearLayout
+                    android:onClick="@{()->callback.openWhatsApp()}"
+                    android:layout_marginTop="60dp"
+                    android:id="@+id/submit"
+                    android:layout_marginBottom="20dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:padding="11dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginStart="16dp"
+                    android:background="@color/txt_color">
+
+                    <ImageView
+
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_gravity="center"
+                        android:layout_marginEnd="10dp"
+
+                        android:src="@drawable/ic_man" />
+
+
+                    <TextView
+
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/white"
+                        android:text="TO BE A PARTNER , CONTACT US"
+                        android:fontFamily="@font/grillbold"
+                        android:textSize="15.3sp" />
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+        <FrameLayout
+            android:visibility="gone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/liBottombar"
+            android:layout_alignParentRight="true"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="30dp">
+
+
+            <ImageView
+                android:src="@drawable/wlogo"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentRight="true"
+                android:layout_width="100dp"
+                android:layout_height="100dp" />
+
+
+            <ImageView
+                android:visibility="gone"
+                android:layout_width="25dp"
+                android:layout_height="20dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="-4dp"
+                android:src="@drawable/ic_map_direction"
+                app:tint="@color/white" />
+
+        </FrameLayout>
+
+
+    </RelativeLayout>
+</layout>

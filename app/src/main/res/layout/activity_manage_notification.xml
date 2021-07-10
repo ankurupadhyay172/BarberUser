@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:background="#0e0e0e"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <ImageView
+                onback="@{`test`}"
+                android:padding="20dp"
+                android:src="@drawable/ic_back_arrow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:tint="@color/white" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="40dp"
+                android:text="Notifications"
+                android:textColor="@color/white"
+                android:textSize="18sp" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/notificationicon"
+                android:layout_marginTop="80.3dp"
+                android:layout_gravity="center" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/enable_noti"
+                android:textColor="@color/white"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:textSize="16sp"
+                android:layout_marginTop="36.5dp" />
+
+            <TextView
+                android:fontFamily="@font/grillmedium"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/when_you"
+                android:textColor="#c4ffffff"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:textSize="12.3sp"
+                android:layout_marginTop="25.3dp" />
+
+            <TextView
+                android:fontFamily="@font/grillmedium"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/turn_on"
+                android:textSize="16.7sp"
+                android:textColor="@color/white"
+                android:gravity="center"
+                android:background="@drawable/noti_turn_on_gradient"
+                android:layout_marginStart="66.4dp"
+                android:layout_marginEnd="66.4dp"
+                android:layout_marginTop="74.5dp"
+                android:paddingTop="14.7dp"
+                android:paddingBottom="14.7dp" />
+
+            <TextView
+                android:fontFamily="@font/sf_pro_display_regular"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/by_clicking"
+                android:textColor="#8a8a8f"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:textSize="11.3sp"
+                android:layout_marginTop="18.1dp" />
+
+        </LinearLayout>
+
+        <!--The text view is placed under the relative layout and
+        to place it on the bottom, "layout_alignParentBottom" is used....-->
+        <TextView
+            android:fontFamily="@font/sf_pro_display_regular"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="14.7sp"
+            android:textColor="@color/white"
+            android:text="@string/not_now"
+            android:gravity="center"
+            android:layout_marginBottom="25dp"
+            android:layout_alignParentBottom="true" />
+
+    </RelativeLayout>
+</layout>
